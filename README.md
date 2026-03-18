@@ -35,6 +35,6 @@ Powered by the **STM32F103C8T6** (ARM Cortex-M3) at **72MHz**:
 During integration, a hardware breakdown occurred in the H-bridge. Forensic analysis identified a missing connection between the **VS pin** (Pin 6) of the IR2104 drivers and the **source terminals** of the high-side MOSFETs.This led to a "floating gate" state, causing a direct short-circuit from the 24V rail to Ground.
 
 ---
-**Author**: Nguyễn Huỳnh Khôi 
-**Supervised by**: PhD. Võ Lâm Chương 
-**University**: Ho Chi Minh City University of Technology and Engineering (HCMUTE)
+**Author**: Nguyễn Huỳnh Khôi.  
+**Supervised by**: PhD. Võ Lâm Chương.   
+**University**: Ho Chi Minh City University of Technology and Engineering (HCMUTE)   
