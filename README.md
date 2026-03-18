@@ -34,6 +34,15 @@ Powered by the **STM32F103C8T6** (ARM Cortex-M3) at **72MHz**:
 ## 🔍 Failure Analysis (Root Cause)
 During integration, a hardware breakdown occurred in the H-bridge. Forensic analysis identified a missing connection between the **VS pin** (Pin 6) of the IR2104 drivers and the **source terminals** of the high-side MOSFETs.This led to a "floating gate" state, causing a direct short-circuit from the 24V rail to Ground.
 
+## 🎥 Experimental Validation
+The following video demonstrates the individual functional verification of the control board:
+* **Hardware Self-Test:** Verification of the 24V, 12V, 5V, and 3.3V power rails.
+* **Encoder & Sensor Feedback:** Real-time pulse capturing and gyroscope data retrieval.
+* **PWM Output:** Validation of 20kHz complementary signals via oscilloscope.
+
+
+* **Video Demo:** [![Cart-Pole Demo](https://img.youtube.com/vi/ID_VIDEO/0.jpg)](https://youtu.be/A-W4OBMFTu4?si=EoCC8th8CacCnSwT)
+
 ---
 **Author**: Nguyễn Huỳnh Khôi.  
 **Supervised by**: PhD. Võ Lâm Chương.   
