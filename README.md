@@ -9,6 +9,8 @@ This project presents the design and implementation of a specialized control boa
 
 ## 🛠 Hardware Architecture
 
+![Image](SCHEMATIC_page-0001.jpg)
+
 ### 1. Multi-Stage Power Management
 The system operates on a primary **24V DC** input with hierarchical regulation to ensure signal stability and efficiency:
 * **12V Rail**: Regulated by the **L7812** for MOSFET gate drivers.
@@ -23,7 +25,8 @@ The system operates on a primary **24V DC** input with hierarchical regulation t
 ### 3. Galvanic Isolation
 * **High-Speed Paths**: **6N137 optocouplers** (10Mbps) are dedicated to PWM and Encoder signals to prevent propagation delay in the real-time control loop.
 * **Isolation Barrier**: Complete physical partitioning between the Power Zone and Clean Logic Zone via the optocoupler bridge.
-
+![Image](Board_Top_View.png)
+![Image](Board_Bottom_View.png)
 ## 💻 Firmware & Control Logic
 Powered by the **STM32F103C8T6** (ARM Cortex-M3) at **72MHz**:
 * **Encoder Processing**: Utilizes hardware Timer Encoder Mode for high-resolution quadrature decoding without CPU overhead.
@@ -34,13 +37,15 @@ Powered by the **STM32F103C8T6** (ARM Cortex-M3) at **72MHz**:
 ## 🔍 Failure Analysis (Root Cause)
 During integration, a hardware breakdown occurred in the H-bridge. Forensic analysis identified a missing connection between the **VS pin** (Pin 6) of the IR2104 drivers and the **source terminals** of the high-side MOSFETs.This led to a "floating gate" state, causing a direct short-circuit from the 24V rail to Ground.
 
+![Image](Real_board_front.jpg)
+![Image](Real_board_back.jpg)
+
+
 ## 🎥 Experimental Validation
 The following video demonstrates the individual functional verification of the control board:
 * **Hardware Self-Test:** Verification of the 24V, 12V, 5V, and 3.3V power rails.
 * **Encoder & Sensor Feedback:** Real-time pulse capturing and gyroscope data retrieval.
 * **PWM Output:** Validation of 20kHz complementary signals via oscilloscope.
-
-
 * **Video Demo:** [![Cart-Pole Demo](https://img.youtube.com/vi/ID_VIDEO/0.jpg)](https://youtu.be/A-W4OBMFTu4?si=EoCC8th8CacCnSwT)
 
 ---
